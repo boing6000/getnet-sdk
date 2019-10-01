@@ -10,7 +10,7 @@ Todos os passos e processos referentes à integração com o sistema de captura 
 
 add composer.json
 ```
-"edson-nascimento/getnet-php": "^1.0"
+"boing6000/getnet-sdk": "^1.0"
 ```
 ou execute
 ```
