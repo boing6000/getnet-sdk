@@ -10,7 +10,10 @@
   "autoload": {
     "psr-4": {
       "Getnet\\": "src//Getnet"
-    }
+    },
+    "files": [
+      "src//helpers.php"
+    ],
   },
   "authors": [
   ],
