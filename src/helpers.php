@@ -1,3 +1,5 @@
+<?php
+
 use Getnet\API\Environment;
 use Getnet\API\Getnet;
 
