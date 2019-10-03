@@ -275,6 +275,7 @@ class Getnet {
            // return $error;
         }
 
+        $response['status_code'] = 200;
         $boletoresponse = new BoletoRespose();
         $boletoresponse->mapperJson($response);
         $boletoresponse->setBaseUrl($request->getBaseUrl());
