@@ -140,11 +140,12 @@ class Getnet {
         } catch (\Exception $e) {
 
             $error = new BaseResponse();
-            $error->mapperJson(json_decode($e->getMessage(), true));
+            $msg = json_decode($e->getMessage());
+            $error->mapperJson(['error_message' => $msg->message, 'status' => 'ERROR', 'status_code' => $msg->statusCode]);
 
             return $error;
         }
-
+        $response['status_code'] = 200;
         $authresponse = new AuthorizeResponse();
         $authresponse->mapperJson($response);
 
