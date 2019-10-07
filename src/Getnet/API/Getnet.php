@@ -137,15 +137,17 @@ class Getnet {
             }else{
                 throw new \Exception("Error select credit or debit");
             }
+            //$response['status_code'] = 200;
         } catch (\Exception $e) {
 
             $error = new BaseResponse();
             $msg = json_decode($e->getMessage());
-            $error->mapperJson(['error_message' => $msg->message, 'status' => 'ERROR', 'status_code' => $msg->statusCode]);
-
+            $error->setStatusCode($msg->statusCode);
+            $error->setErrorMessage($msg->message);
+            $error->setStatus('Error');
+            //$error->mapperJson(['error_message' => $msg->message, 'status' => 'ERROR', 'status_code' => $msg->statusCode]);
             return $error;
         }
-        $response['status_code'] = 200;
         $authresponse = new AuthorizeResponse();
         $authresponse->mapperJson($response);
 
@@ -265,14 +267,14 @@ class Getnet {
         try {
             $request = new Request($this);
             $response = $request->post($this, "/v1/payments/boleto", $transaction->toJSON());
-            if ($this->debug)
-                print $transaction->toJSON();
+
         } catch (\Exception $e) {
 
             $error = new BaseResponse();
             $error->mapperJson($e);
 
-           // return $error;
+
+            return $error;
         }
 
         $response['status_code'] = 200;
