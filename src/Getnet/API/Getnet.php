@@ -137,7 +137,7 @@ class Getnet {
             }else{
                 throw new \Exception("Error select credit or debit");
             }
-            //$response['status_code'] = 200;
+            $response['status_code'] = 200;
         } catch (\Exception $e) {
 
             $error = new BaseResponse();
