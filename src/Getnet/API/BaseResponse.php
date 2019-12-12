@@ -33,6 +33,10 @@ class BaseResponse implements \JsonSerializable {
     public $responseJSON;
 
     public $status_label;
+    
+    public $error_code;
+    
+    public $confirm_date;
 
     /**
      *
